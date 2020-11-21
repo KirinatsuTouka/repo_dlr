@@ -25,10 +25,24 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
+        // 入力された値をコード値に変換
+        switch ($input['access_auth']){
+            case "User":
+                $auth_code = "0";
+            break;
+            case "Manager":
+                $auth_code = "1";
+            break;
+            case "Admin":
+                $auth_code = "9";
+            break;
+        }
+
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'access_auth' => $auth_code,
         ]);
     }
 }
