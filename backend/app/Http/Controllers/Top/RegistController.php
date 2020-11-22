@@ -7,10 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
-class TopController extends Controller
+class RegistController extends Controller
 {
     //
-    public function top(){
-        return view('top.top');
+    public function regist(){
+        return view('top.regist');
     }
 }

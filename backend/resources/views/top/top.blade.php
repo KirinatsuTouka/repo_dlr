@@ -41,7 +41,7 @@
             ?>
         </div>
         
-        @if (Route::has('login'))
+        
         <div id="right-menu">
         @auth
             ユーザ名 : {{ Auth::user()->name }}さんでログインしています
@@ -67,7 +67,7 @@
             </div>
         
             <br>
-            
+            @if (Route::has('login'))
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
@@ -80,14 +80,14 @@
                 @endif
         
                 <div>
-                    <x-jet-label for="name" value="{{ __('ユーザID') }}" />
+                    <x-jet-label for="name" value="{{ __('ユーザID') }}" /><br>
                     <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                 </div>
         
                 <br>
 
                 <div>
-                    <x-jet-label for="password" value="{{ __('パスワード') }}" />
+                    <x-jet-label for="password" value="{{ __('パスワード') }}" /><br>
                     <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
                 </div>
         
@@ -114,19 +114,15 @@
                     </x-jet-button>
                 </div>
             </form>
-            
-            <br>
-    
-            @if (Route::has('register'))
-            
-            <div>
-            <a href="{{ route('register') }}">新規登録はこちらから</a>
-            </div>
-            
             @endif
+            <br>
+
+            <div>
+            <a href="{{ route('regist') }}">新規登録はこちらから</a>
+            </div>
         @endif
         </div>
-        @endif
+        
 
     </div>
 

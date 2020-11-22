@@ -12,9 +12,9 @@ class MenuController extends Controller
     //
     public function index(){
         if(Auth::check()){
-            return view('menu/index');
+            return view('menu.index');
         }else{
-            return view('top');
+            return view('top.top');
         }
 
     }
