@@ -19,7 +19,7 @@ class TestinputController extends Controller
     public function show($id)
     {
         //ぞんざいな照会画面を表示する
-        return view('show');
+        return view('testinput/show');
 
     }
 
@@ -33,10 +33,10 @@ class TestinputController extends Controller
     {
         if(Gate::denies('user')) {
             //ぞんざいな更新画面を表示する
-            return view('edit');
+            return view('testinput/edit');
         } else {
             session()->flash('editmsg', 'あんた更新できないよ！！');
-            return view('menu/menu');
+            return view('menu/index');
         }
     }
 

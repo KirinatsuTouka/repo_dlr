@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Top\TopController;
 use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\Menu\TestinputController;
 
@@ -16,7 +17,7 @@ use App\Http\Controllers\Menu\TestinputController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('top');
 });
 Route::get('/hello', function () {
     return 'hello world!';
@@ -27,11 +28,17 @@ Route::get('/sample/route/1', function(){
     return $result;
 });
 
+Route::get('/top', [TopController::class, 'top'])->name('top');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('menu/menu', [MenuController::class, 'menu'])->name('menu');
+Route::get('/logout', function(){
+    return redirect('top');
+});
+
+Route::get('menu/index', [MenuController::class, 'index'])->name('index');
 
 Route::get('testinput/{id}/show', [TestinputController::class, 'show'])->name('show');
 Route::get('testinput/{id}/edit', [TestinputController::class, 'edit'])->name('edit');

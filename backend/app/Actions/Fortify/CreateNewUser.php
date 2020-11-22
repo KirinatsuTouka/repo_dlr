@@ -26,23 +26,24 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         // 入力された値をコード値に変換
-        switch ($input['access_auth']){
-            case "User":
-                $auth_code = "0";
-            break;
-            case "Manager":
-                $auth_code = "1";
-            break;
-            case "Admin":
-                $auth_code = "9";
-            break;
-        }
+        // switch ($input['access_auth']){
+        //     case "User":
+        //         $auth_code = "0";
+        //     break;
+        //     case "Manager":
+        //         $auth_code = "1";
+        //     break;
+        //     case "Admin":
+        //         $auth_code = "9";
+        //     break;
+        // }
 
         return User::create([
             'name' => $input['name'],
-            'email' => $input['email'],
+            //'email' => $input['email'],
+            'email' => "xxx@zzz.com",
             'password' => Hash::make($input['password']),
-            'access_auth' => $auth_code,
+            'access_auth' => "0",
         ]);
     }
 }

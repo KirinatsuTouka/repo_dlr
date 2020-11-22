@@ -10,11 +10,11 @@ use Illuminate\Http\Request;
 class MenuController extends Controller
 {
     //
-    public function menu(){
+    public function index(){
         if(Auth::check()){
-            return view('menu/menu');
+            return view('menu/index');
         }else{
-            return view('auth/login');
+            return view('top');
         }
 
     }
