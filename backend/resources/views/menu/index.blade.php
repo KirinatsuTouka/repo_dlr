@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="jp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,7 @@
 </head>
     
     <body>
-        
+
         <h2 id="header">
             こんにちは！{{ Auth::user()->name }}さん<br><br>
         </h2>

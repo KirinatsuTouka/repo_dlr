@@ -24,11 +24,17 @@ Route::get('menu/index', function(){
     return redirect()->route('index');
 });
 Route::get('/hello', function () {
-    return 'hello world!';
+    $hoge = 'hello world!';
+    return $hoge;
+});
+
+Route::get('/phpinfo', function () {
+    return view('phpinfo');
 });
 
 Route::get('/sample/route/1', function(){
     $result = 5 * 20;
+    $result += 50;
     return $result;
 });
 
